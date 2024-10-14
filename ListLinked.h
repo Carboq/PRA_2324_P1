@@ -1,6 +1,7 @@
 #include <ostream>
 #include "List.h"
 #include "Node.h"
+using namespace std;
 
 template <typename T>
 class ListLinked : public List<T> {
@@ -33,16 +34,12 @@ class ListLinked : public List<T> {
             return current->data;
         }
         friend std::ostream& operator<<(std::ostream &out, const ListLinked<T> &list){
+
             Node<T>* current = list.first;
-            out << "[";
             while (current != nullptr) {
-                out << current->data;
-                if (current->next != nullptr) {
-                    out << ", ";
-                }
+                out << current->data << " ";
                 current = current->next;
             }
-            out << "]";
             return out;
         }
-    };
+};
