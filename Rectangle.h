@@ -7,7 +7,7 @@
 #include "Point2D.h"
 
 class Rectangle : public Shape {
-    private:
+    protected:
         Point2D* vs;
         static int const N_VERTICES = 4;
         static bool check(Point2D* vertices);
