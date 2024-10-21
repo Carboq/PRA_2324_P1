@@ -1,16 +1,18 @@
-programa: Shape.o Circle.o
-	g++ -o programa Shape.o Circle.o
-
+Point2D.o: Point2D.h Point2D.cpp
+	g++ -c Point2D.cpp
+	
 Shape.o: Shape.h Shape.cpp
 	g++ -c Shape.cpp
 
-Circle.o: Circle.h Circle.cpp
-	g++ -c Circle.cpp
+Rectangle.o: Rectangle.h Rectangle.cpp
+	g++ -c Rectangle.cpp
 
-bin/testCircle: testCircle.cpp Circle.o Shape.o Point2D.o
-	g++ -c testCircle.cpp
+Square.o: Square.h Square.cpp
+	g++ -c Square.cpp
+bin/testSquare: testSquare.cpp Square.o Rectangle.o Shape.o Point2D.o
+	g++ -c testSquare.cpp
 	mkdir -p bin
-	g++ -o bin/testCircle testCircle.o Circle.o Shape.o Point2D.o
+	g++ -o bin/testSquare testSquare.o Square.o Rectangle.o Shape.o Point2D.o
 
 clean:
 	rm -r *.o *.gch bin
